@@ -1,0 +1,13 @@
+<!-- Import the necessary Nebular module in your component -->
+<nb-card>
+  <nb-card-body>
+    <div class="image">
+      <!-- Your image source goes here -->
+      <img src="../../../assets/Black___White_Minimalist_Business_Logo-removebg-preview.png" alt="Logo Image">
+    </div>
+    <h1>Welcome to URL Shortener</h1>
+    <nb-button *ngIf="!isLoggedIn()" id="primary" status="primary" routerLink="/login">Login</nb-button>
+    <nb-button *ngIf="!isLoggedIn()" id="success" status="success" routerLink="/register">Register</nb-button>
+    <nb-button *ngIf="isLoggedIn()" id="danger" status="danger" routerLink="" (click)="onLogoutClick()" style="background-color: red; color: white; border-radius: 5px;">Logout</nb-button>
+  </nb-card-body>
+</nb-card>

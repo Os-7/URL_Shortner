@@ -1,0 +1,8 @@
+ <nb-layout-column>
+    <h1 *ngIf="user" style="font-size: 50px;">{{user.name}}'s Profile</h1>
+    <div>
+      <p *ngIf="user"><strong>Username:</strong> {{user.username}}</p>
+      <p *ngIf="user"><strong>Email:</strong> {{ user.email }}</p>
+      <!-- Add more profile information as needed -->
+    </div>
+  </nb-layout-column>

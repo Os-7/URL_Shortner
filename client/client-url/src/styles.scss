@@ -1,0 +1,34 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+@import 'ngx-toastr/toastr';
+
+@include nb-install() {
+  @include nb-theme-global();
+};
+/* You can add global styles to this file, and also import other style files */
+// styles.scss
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/default';
+
+
+app-home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+app-register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+app-profile{
+  display: flex;
+  align-items: start;
+}
+
+.layout-container .content{
+  margin: 0px;
+}

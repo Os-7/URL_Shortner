@@ -1,0 +1,20 @@
+<!-- app.component.html -->
+
+<nb-layout>
+  <nb-layout-header fixed>
+    <!-- Include your navbar component here -->
+    <app-navbar></app-navbar>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <div class="container">
+      <!-- <ngx-toastr></ngx-toastr> -->
+      <router-outlet></router-outlet>
+    </div>
+  </nb-layout-column>
+
+  <nb-layout-footer>
+    <app-footer></app-footer>
+  </nb-layout-footer>
+</nb-layout>
+ 

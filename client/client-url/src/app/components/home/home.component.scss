@@ -1,0 +1,70 @@
+// navbar.component.scss
+@forward '@nebular/theme/styles/theming';
+@use '@nebular/theme/styles/theming' as *;
+@use '@nebular/theme/styles/themes/default';
+
+
+$nb-themes: nb-register-theme(
+  (
+    // we setting color-basic-800 instead of color-basic-1000
+    text-basic-color: color-basic-800,
+    // and color-basic-600 as instead of color-basic-500
+    text-disabled-color: color-basic-600
+  ),
+  default,
+  default
+);
+
+/* home.component.scss */
+
+.content {
+  text-align: center;
+  margin-top: 50px;
+
+  h1 {
+    font-size: 2em;
+    margin: 0px 0px 50px 0px;
+  }
+
+  img{
+    width: 180px;
+    height: 180px;
+  }
+
+  nb-card{
+    width: 60%;
+    height: 400px;
+    background: linear-gradient(to bottom right, blue, pink);
+  }
+
+  nb-button {
+    margin: 50px 20px;
+    font-size: 1em;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #primary {
+    background-color: #3498db; 
+    color: #ffffff; 
+    border-radius: 5px;
+  }
+
+    #success {
+      background-color: #2ecc71;
+      color: #ffffff;
+      border-radius: 5px;
+    }
+
+    #primary:hover {
+      filter: brightness(90%);
+    }
+
+    #success:hover {
+      filter: brightness(90%);
+    }
+  
+}
+
+
+  

@@ -1,0 +1,27 @@
+<h1>DASHBOARD</h1>
+<form (ngSubmit)="createShortLink()">
+  <input nb-input placeholder="Enter URL" [(ngModel)]="urlInput" name="urlInput" placeholder="Enter your URL" fullWidth>
+  <button nbButton status="primary" type="submit" fullWidth>Create Short Link</button>
+  <div *ngIf="userShortLinks.length > 0" id="short-link-list">
+    <h3>Your Short Links:</h3>
+    <ul>
+      <li *ngFor="let link of userShortLinks">
+        <strong>Original URL:</strong> {{ link.originalURL }}<br>
+        <strong>Short URL:</strong> <a href="{{ link.shortURL }}" target="_blank">{{ link.shortURL }}</a><br>
+        <strong>Number of Clicks:</strong> {{ link.analytics?.length || 0 }}<br>
+        <strong>Timestamp:</strong>
+            <ul>
+              <ng-container *ngIf="link.analytics && link.analytics.length > 0; else noTimestamp">
+                <li *ngFor="let analytics of link.analytics">
+                  {{ analytics.timestamp | date:'medium' }}<br>
+                </li>
+              </ng-container>
+              <ng-template #noTimestamp>
+                <li>NO TIMESTAMP</li>
+              </ng-template>
+            </ul>
+      </li>
+      <br>
+    </ul>
+  </div>
+</form>

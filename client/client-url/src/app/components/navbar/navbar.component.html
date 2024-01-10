@@ -1,0 +1,29 @@
+<!-- app-navbar.component.html -->
+
+<nb-layout-header fixed id="navbar">
+  <nb-actions class="nav-text">
+    <nb-action>
+      <a routerLink="/"  id="heading">URL SHORTNER</a>
+    </nb-action>
+    <nb-action >
+      <a routerLink="/" routerLinkActive="active">Home</a>
+    </nb-action>
+    <nb-action *ngIf="!isLoggedIn()">
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+    </nb-action>
+    <nb-action *ngIf="!isLoggedIn()">
+      <a routerLink="/register" routerLinkActive="active">Register</a>
+    </nb-action>
+    <nb-action *ngIf="isLoggedIn()">
+      <a routerLink="/profile" routerLinkActive="active">Profile</a>
+    </nb-action>
+    <nb-action *ngIf="isLoggedIn()">
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    </nb-action>
+    <nb-action *ngIf="isLoggedIn()">
+      <a (click)="onLogoutClick()" href="#">Logout</a>
+    </nb-action>
+    <!-- Add more menu items as needed -->
+  </nb-actions>
+  <nb-user *ngIf="isLoggedIn()" class="nav-user" [name]="getUserDisplayName()"></nb-user>
+</nb-layout-header>

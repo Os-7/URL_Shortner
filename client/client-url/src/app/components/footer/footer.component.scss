@@ -1,0 +1,40 @@
+@forward '@nebular/theme/styles/theming';
+@use '@nebular/theme/styles/theming' as *;
+@use '@nebular/theme/styles/themes/default';
+
+
+$nb-themes: nb-register-theme(
+  (
+    // we setting color-basic-800 instead of color-basic-1000
+    text-basic-color: color-basic-800,
+    // and color-basic-600 as instead of color-basic-500
+    text-disabled-color: color-basic-600
+  ),
+  default,
+  default
+);
+
+/* footer.component.scss */
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95vw;
+    background-color: rgb(179, 0, 255);
+    margin: 0%;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+  }
+
+  p{
+    margin: 2px 0px;
+  }
+
+  h6{
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+
+  

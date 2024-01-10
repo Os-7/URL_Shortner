@@ -1,0 +1,20 @@
+h1{
+    background: linear-gradient(to bottom right, blue, pink);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: left;
+}
+
+p strong{
+    font-size: 30px;
+    background: linear-gradient(to bottom right, #30CFD0 , #330867 );
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+    text-align: left;
+}
+
+p{
+    font-size: 30px;
+    text-align: left;
+}
+
