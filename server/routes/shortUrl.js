@@ -2,10 +2,12 @@ const express = require('express');
 const URL = require('../models/url');
 const router = express.Router();
 
+// Route to handle redirection based on shortId
 router.get('/:shortId', async (req, res) => {
     const shortId = req.params.shortId;
 
     try {
+        // Update the visit history and get the updated document
         const entry = await URL.findOneAndUpdate(
             { shortId },
             {
@@ -40,5 +42,5 @@ router.get('/:shortId', async (req, res) => {
     }
 });
 
-
+// Export the router
 module.exports = router;

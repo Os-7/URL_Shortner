@@ -1,33 +1,44 @@
 <!-- registration.component.html -->
 
+<!-- Nebular card for the registration form -->
 <nb-card>
-    <nb-card-header>
-      Register
-    </nb-card-header>
-    <nb-card-body>
-      <form>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input nbInput id="name" name="name" [(ngModel)]="user.name" placeholder="Enter your name" fullWidth/>
-        </div>
-  
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input nbInput id="username" name="username" [(ngModel)]="user.username" placeholder="Enter your username" fullWidth/>
-        </div>
-  
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input nbInput id="email" name="email" [(ngModel)]="user.email" placeholder="Enter your email" fullWidth />
-        </div>
-  
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input nbInput type="password" id="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password" fullWidth/>
-        </div>
-  
-        <button nbButton status="success" (click)="onRegisterSubmit()" fullWidth>Register</button>
-      </form>
-    </nb-card-body>
-  </nb-card>
-  
+  <nb-card-header>
+    Register
+  </nb-card-header>
+  <nb-card-body>
+    <!-- Form for user registration -->
+    <form>
+
+      <!-- Form group for user's name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <!-- Input field for user's name -->
+        <input nbInput id="name" name="name" [(ngModel)]="user.name" placeholder="Enter your name" fullWidth/>
+      </div>
+
+      <!-- Form group for user's username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <!-- Input field for user's username -->
+        <input nbInput id="username" name="username" [(ngModel)]="user.username" placeholder="Enter your username" fullWidth/>
+      </div>
+
+      <!-- Form group for user's email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <!-- Input field for user's email -->
+        <input nbInput id="email" name="email" [(ngModel)]="user.email" placeholder="Enter your email" fullWidth />
+      </div>
+
+      <!-- Form group for user's password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <!-- Input field for user's password (password type for security) -->
+        <input nbInput type="password" id="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password" fullWidth/>
+      </div>
+
+      <!-- Button to submit the registration form -->
+      <button nbButton status="success" (click)="onRegisterSubmit()" fullWidth>Register</button>
+    </form>
+  </nb-card-body>
+</nb-card>

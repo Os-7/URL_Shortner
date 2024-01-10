@@ -1,8 +1,22 @@
- <nb-layout-column>
-    <h1 *ngIf="user" style="font-size: 50px;">{{user.name}}'s Profile</h1>
-    <div>
-      <p *ngIf="user"><strong>Username:</strong> {{user.username}}</p>
-      <p *ngIf="user"><strong>Email:</strong> {{ user.email }}</p>
-      <!-- Add more profile information as needed -->
-    </div>
-  </nb-layout-column>
+<!-- Profile component template -->
+
+<!-- Nebular layout column for organizing content -->
+<nb-layout-column>
+
+  <!-- Display user's name if user data is available -->
+  <h1 *ngIf="user" style="font-size: 50px;">{{user.name}}'s Profile</h1>
+
+  <!-- Container for additional user profile information -->
+  <div>
+
+    <!-- Display username if user data is available -->
+    <p *ngIf="user"><strong>Username:</strong> {{user.username}}</p>
+
+    <!-- Display email if user data is available -->
+    <p *ngIf="user"><strong>Email:</strong> {{ user.email }}</p>
+
+    <!-- Add more profile information as needed -->
+
+  </div>
+
+</nb-layout-column>

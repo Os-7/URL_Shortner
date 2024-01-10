@@ -1,19 +1,39 @@
-    <nb-layout-column>
-      <nb-card>
-        <nb-card-header>Login</nb-card-header>
-        <nb-card-body>
-          <form (ngSubmit)="onLoginSubmit()">
-            <div class="form-group">
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" [(ngModel)]="username" class="form-control" required placeholder="xyx@gmail.com">
-            </div>
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" required>
-            </div>
-            <button nbButton status="success" fullWidth>Login</button>
-          </form>
-        </nb-card-body>
-      </nb-card>
-    </nb-layout-column>
-  
+<!-- Login component template -->
+
+<!-- Nebular layout column to organize content -->
+<nb-layout-column>
+
+  <!-- Nebular card for login form -->
+  <nb-card>
+
+    <!-- Card header for the login form -->
+    <nb-card-header>Login</nb-card-header>
+
+    <!-- Card body containing the login form -->
+    <nb-card-body>
+
+      <!-- Form for user login with ngSubmit event binding -->
+      <form (ngSubmit)="onLoginSubmit()">
+
+        <!-- Username input field -->
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" [(ngModel)]="username" class="form-control" required placeholder="xyx@gmail.com">
+        </div>
+
+        <!-- Password input field -->
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" required>
+        </div>
+
+        <!-- Login button with Nebular styling -->
+        <button nbButton status="success" fullWidth>Login</button>
+
+      </form>
+
+    </nb-card-body>
+
+  </nb-card>
+
+</nb-layout-column>

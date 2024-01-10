@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Define the schema for the URL model
 const urlSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -22,6 +23,8 @@ const urlSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
+// Create the URL model using the schema
 const URL = mongoose.model('url', urlSchema);
 
+// Export the URL model
 module.exports = URL;

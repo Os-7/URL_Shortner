@@ -1,25 +1,53 @@
+<!-- DASHBOARD HEADER -->
 <h1>DASHBOARD</h1>
+
+<!-- FORM SECTION -->
 <form (ngSubmit)="createShortLink()">
+  
+  <!-- INPUT FOR ENTERING URL -->
   <input nb-input placeholder="Enter URL" [(ngModel)]="urlInput" name="urlInput" placeholder="Enter your URL" fullWidth>
+  
+  <!-- BUTTON TO CREATE SHORT LINK -->
   <button nbButton status="primary" type="submit" fullWidth>Create Short Link</button>
+  
+  <!-- DISPLAY USER'S SHORT LINKS IF ANY -->
   <div *ngIf="userShortLinks.length > 0" id="short-link-list">
+    
+    <!-- HEADING FOR USER'S SHORT LINKS -->
     <h3>Your Short Links:</h3>
+    
+    <!-- LIST OF SHORT LINKS -->
     <ul>
       <li *ngFor="let link of userShortLinks">
+        
+        <!-- ORIGINAL URL -->
         <strong>Original URL:</strong> {{ link.originalURL }}<br>
+        
+        <!-- SHORT URL -->
         <strong>Short URL:</strong> <a href="{{ link.shortURL }}" target="_blank">{{ link.shortURL }}</a><br>
+        
+        <!-- NUMBER OF CLICKS -->
         <strong>Number of Clicks:</strong> {{ link.analytics?.length || 0 }}<br>
+        
+        <!-- TIMESTAMP SECTION -->
         <strong>Timestamp:</strong>
-            <ul>
-              <ng-container *ngIf="link.analytics && link.analytics.length > 0; else noTimestamp">
-                <li *ngFor="let analytics of link.analytics">
-                  {{ analytics.timestamp | date:'medium' }}<br>
-                </li>
-              </ng-container>
-              <ng-template #noTimestamp>
-                <li>NO TIMESTAMP</li>
-              </ng-template>
-            </ul>
+        
+        <!-- CHECK IF THERE ARE ANALYTICS DATA -->
+        <ul>
+          <ng-container *ngIf="link.analytics && link.analytics.length > 0; else noTimestamp">
+            
+            <!-- LOOP THROUGH ANALYTICS DATA AND DISPLAY TIMESTAMP -->
+            <li *ngFor="let analytics of link.analytics">
+              {{ analytics.timestamp | date:'medium' }}<br>
+            </li>
+            
+          </ng-container>
+          
+          <!-- DISPLAY IF NO TIMESTAMP DATA IS AVAILABLE -->
+          <ng-template #noTimestamp>
+            <li>NO TIMESTAMP</li>
+          </ng-template>
+        </ul>
       </li>
       <br>
     </ul>

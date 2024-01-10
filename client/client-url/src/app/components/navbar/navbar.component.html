@@ -1,29 +1,49 @@
-<!-- app-navbar.component.html -->
-
+<!-- Nebular layout header with fixed position and an id -->
 <nb-layout-header fixed id="navbar">
+
+  <!-- Nebular actions for navigation links -->
   <nb-actions class="nav-text">
+
+    <!-- Heading link for the home page -->
     <nb-action>
-      <a routerLink="/"  id="heading">URL SHORTNER</a>
+      <a routerLink="/" id="heading">URL SHORTENER</a>
     </nb-action>
-    <nb-action >
+
+    <!-- Navigation link for the home page -->
+    <nb-action>
       <a routerLink="/" routerLinkActive="active">Home</a>
     </nb-action>
+
+    <!-- Navigation link for login, visible if not logged in -->
     <nb-action *ngIf="!isLoggedIn()">
       <a routerLink="/login" routerLinkActive="active">Login</a>
     </nb-action>
+
+    <!-- Navigation link for register, visible if not logged in -->
     <nb-action *ngIf="!isLoggedIn()">
       <a routerLink="/register" routerLinkActive="active">Register</a>
     </nb-action>
+
+    <!-- Navigation link for profile, visible if logged in -->
     <nb-action *ngIf="isLoggedIn()">
       <a routerLink="/profile" routerLinkActive="active">Profile</a>
     </nb-action>
+
+    <!-- Navigation link for dashboard, visible if logged in -->
     <nb-action *ngIf="isLoggedIn()">
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     </nb-action>
+
+    <!-- Logout link, visible if logged in -->
     <nb-action *ngIf="isLoggedIn()">
       <a (click)="onLogoutClick()" href="#">Logout</a>
     </nb-action>
+
     <!-- Add more menu items as needed -->
+
   </nb-actions>
+
+  <!-- Nebular user component, visible if logged in -->
   <nb-user *ngIf="isLoggedIn()" class="nav-user" [name]="getUserDisplayName()"></nb-user>
+
 </nb-layout-header>

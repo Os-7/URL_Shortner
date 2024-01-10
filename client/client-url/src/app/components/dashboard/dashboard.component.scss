@@ -1,15 +1,18 @@
-h1{
+/* Center-aligns the text and sets color to red */
+h1 {
     text-align: center;
     color: red;
 }
 
-form input{
-    display: block;
-    margin: 10px 0px;
-    height: 35px;
-    width: 100%;
+/* Styles for form input elements */
+form input {
+    display: block; /* Display as block elements */
+    margin: 10px 0px; /* Margin above and below input elements */
+    height: 35px; /* Set height */
+    width: 100%; /* Set width to 100% of the container */
 }
 
-#short-link-list{
+/* Aligns text to the left in the short link list section */
+#short-link-list {
     text-align: left;
 }

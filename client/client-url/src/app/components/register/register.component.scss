@@ -1,53 +1,42 @@
-@forward '@nebular/theme/styles/theming';
-@use '@nebular/theme/styles/theming' as *;
-@use '@nebular/theme/styles/themes/default';
-
-
-$nb-themes: nb-register-theme(
-  (
-    // we setting color-basic-800 instead of color-basic-1000
-    text-basic-color: color-basic-800,
-    // and color-basic-600 as instead of color-basic-500
-    text-disabled-color: color-basic-600
-  ),
-  default,
-  default
-);
-
-/* login.component.scss */
-
-nb-layout-column{
+/* regisration.component.scss */
+// Styling for Nebular layout column
+nb-layout-column {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-nb-card-header{
+  }
+  
+  // Styling for Nebular card header
+  nb-card-header {
     text-align: center;
-    color:white;
-}
-
-nb-card{
+    color: white;
+  }
+  
+  // Styling for Nebular card
+  nb-card {
     width: 50%;
     height: 450px;
     background: linear-gradient(to bottom right, blue, pink);
-}
-
-.form-group label{
+  }
+  
+  // Styling for form group label
+  .form-group label {
     padding: 5px;
     display: block;
     color: white;
-}
-
-.form-group input{
+  }
+  
+  // Styling for form group input
+  .form-group input {
     margin-bottom: 5px;
     padding: 0px 15px;
     height: 30px;
     width: 100%;
     border: none;
     border-radius: 5px;
-}
-
-button{
+  }
+  
+  // Styling for button
+  button {
     margin-top: 40px;
-}
+  }

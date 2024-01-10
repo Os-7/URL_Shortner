@@ -52,20 +52,23 @@ app.use(session({
     saveUninitialized: true
 })); 
 
-//passport middleware
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Initialize Passport Configuration
 require('./config/passport')(passport); 
 
+// Users route
 app.use('/users', users); 
 
+// URL routes
 app.use("/url", urlRoutes);
 
-//URL route server
+// URL shortening route
 app.use("/short", shortUrl);
 
-// Index Route server
+// Index Route
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 });

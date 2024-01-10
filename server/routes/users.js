@@ -3,11 +3,12 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const User = require('../models/user');
-const config = require('../config/database')
+const config = require('../config/database');
 const URL = require('../models/url');
 
-//Register
+// Register
 router.post('/register', (req, res, next) => {
+    // Handling user registration
     let newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -20,9 +21,9 @@ router.post('/register', (req, res, next) => {
         .catch(err => res.json({ success: false, msg: 'Failed to register user', error: err.message }));
 });
 
-
-//authenticate
-router.post('/authenticate',(req,res,next)=>{
+// Authenticate
+router.post('/authenticate', (req, res, next) => {
+    // Handling user authentication
     const username = req.body.username;
     const password = req.body.password;
 
@@ -35,6 +36,7 @@ router.post('/authenticate',(req,res,next)=>{
             User.comparePassword(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
+                        // Generate JWT token upon successful authentication
                         const tokenPayload = {
                             id: user._id,
                             name: user.name,
@@ -64,10 +66,11 @@ router.post('/authenticate',(req,res,next)=>{
             console.error(err);
             res.status(500).json({ success: false, msg: 'Internal Server Error' });
         });
-})
+});
 
-//profile
+// Profile
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+    // Retrieving user profile
     console.log("Request user:", req.user);
     if (!req.user) {
         return res.status(401).json({ success: false, msg: 'Unauthorized' });
@@ -75,11 +78,11 @@ router.get('/profile', passport.authenticate('jwt', { session: false }), (req, r
     res.json({ success: true, user: req.user });
 });
 
-//Dashboard
+// Dashboard
 router.get('/dashboard', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    // Fetching user short URLs for the dashboard
     try {
         const userShortURLs = await URL.find({ user: req.user._id });
-
         res.json({ success: true, shortURLs: userShortURLs });
     } catch (error) {
         console.error('Error fetching user short URLs:', error);
@@ -87,5 +90,4 @@ router.get('/dashboard', passport.authenticate('jwt', { session: false }), async
     }
 });
 
-
-module.exports = router
+module.exports = router;

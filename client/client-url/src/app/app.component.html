@@ -1,20 +1,26 @@
 <!-- app.component.html -->
 
+<!-- Main layout structure using Nebular components -->
 <nb-layout>
+
+  <!-- Header section with fixed navigation bar -->
   <nb-layout-header fixed>
     <!-- Include your navbar component here -->
     <app-navbar></app-navbar>
   </nb-layout-header>
 
+  <!-- Main content column -->
   <nb-layout-column>
+    <!-- Container div for the router outlet to display dynamic content -->
     <div class="container">
-      <!-- <ngx-toastr></ngx-toastr> -->
       <router-outlet></router-outlet>
     </div>
   </nb-layout-column>
 
+  <!-- Footer section -->
   <nb-layout-footer>
+    <!-- Include your footer component here -->
     <app-footer></app-footer>
   </nb-layout-footer>
+
 </nb-layout>
- 

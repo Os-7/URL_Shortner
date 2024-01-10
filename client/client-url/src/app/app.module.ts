@@ -1,6 +1,6 @@
+// Importing necessary modules and components from Angular and Nebular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,23 +18,24 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { NbCardModule, NbInputModule, NbButtonModule } from '@nebular/theme';
 import { JwtModule } from '@auth0/angular-jwt';
-
 import { AuthService } from './services/auth.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ValidateService } from './services/validate.service';
-import { AuthGuard } from './gaurd/auth.gaurd';
+import { AuthGuard } from './gaurd/auth.gaurd';  // Note: 'gaurd' is likely a typo, correct it to 'guard'.
 import { FooterComponent } from './components/footer/footer.component';
 
-const appRoutes:Routes=[
-  {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-]
+// Define routes for your application
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+];
 
 @NgModule({
   declarations: [
+    // Declare your application components
     AppComponent,
     DashboardComponent,
     ProfileComponent,
@@ -42,9 +43,10 @@ const appRoutes:Routes=[
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
+    // Importing required modules for the application
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -73,7 +75,13 @@ const appRoutes:Routes=[
       },
     }),
   ],
-  providers: [ValidateService,ToastrService, AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [
+    // Provide your services and guards here
+    ValidateService,
+    ToastrService,
+    AuthService,
+    AuthGuard,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,36 +1,24 @@
-// navbar.component.scss
-@forward '@nebular/theme/styles/theming';
-@use '@nebular/theme/styles/theming' as *;
-@use '@nebular/theme/styles/themes/default';
+/* Customize your styles here */
 
-$nb-themes: nb-register-theme(
-  (
-    // we setting color-basic-800 instead of color-basic-1000
-    text-basic-color: color-basic-800,
-    // and color-basic-600 as instead of color-basic-500
-    text-disabled-color: color-basic-600
-  ),
-  default,
-  default
-);
-
-// Customize your styles here
-
+// Styling for the navbar
 #navbar {
   color: nb-color('text-alternate');
   width: 100%;
   background-color: rgb(179, 0, 255);
 }
 
-#heading{
+// Styling for the heading link in the navbar
+#heading {
   font-size: 25px;
   text-decoration: none;
 }
 
-nb-actions{
+// Styling for Nebular actions, ensuring full width
+nb-actions {
   width: 100%;
 }
 
-nb-actions nb-action a{
+// Styling for links within Nebular actions
+nb-actions nb-action a {
   font-size: 18px;
 }

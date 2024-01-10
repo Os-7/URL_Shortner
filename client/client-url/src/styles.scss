@@ -1,34 +1,40 @@
+// Importing necessary Nebular theme styles and global styles
 @use 'themes' as *;
-
 @use '@nebular/theme/styles/globals' as *;
 @import 'ngx-toastr/toastr';
 
+// Including Nebular theme installation and global styles
 @include nb-install() {
   @include nb-theme-global();
 };
+
 /* You can add global styles to this file, and also import other style files */
-// styles.scss
+
+// Importing Nebular theme theming and default theme
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
 
-
-app-home{
+// Styling for app-home component
+app-home {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-app-register{
+// Styling for app-register component
+app-register {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-app-profile{
+// Styling for app-profile component
+app-profile {
   display: flex;
   align-items: start;
 }
 
-.layout-container .content{
+// Styling to remove margin from .content inside .layout-container
+.layout-container .content {
   margin: 0px;
 }

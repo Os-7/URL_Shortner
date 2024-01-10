@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
-//User Schema
+// User Schema
 const userSchema = mongoose.Schema({
     name: {
         type: String,
@@ -20,21 +20,26 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     }
-})
+});
 
+// Create the User model using the schema
 const User = mongoose.model('User', userSchema);
 
+// Export the User model
 module.exports = User;
 
+// Function to get a user by ID
 module.exports.getUserById = function(id) {
     return User.findById(id).exec();
 };
 
+// Function to get a user by username
 module.exports.getUserByUsername = function(username){
     const query = {username: username}
     return User.findOne(query).exec();
-}
+};
 
+// Function to add a new user with hashed password
 module.exports.addUser = function(newUser) {
     return new Promise((resolve, reject) => {
         bcrypt.genSalt(10)
@@ -48,6 +53,7 @@ module.exports.addUser = function(newUser) {
     });
 };
 
+// Function to compare entered password with hashed password
 module.exports.comparePassword = function(candidatePassword, hash) {
     return new Promise((resolve, reject) => {
         bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
@@ -58,4 +64,4 @@ module.exports.comparePassword = function(candidatePassword, hash) {
             }
         });
     });
-};
+}; 
